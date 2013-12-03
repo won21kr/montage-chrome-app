@@ -9,6 +9,28 @@
             "properties": {
                 "element": {"#": "converter"}
             }
+        },
+
+        "celsiusNumberfield": {
+            "prototype": "digit/ui/number-field.reel",
+            "properties": {
+                "element": {"#": "celsius"}
+             }
+        },
+
+        "fahrenheitNumberfield": {
+            "prototype": "digit/ui/number-field.reel",
+            "properties": {
+                "element": {"#": "fahrenheit"}
+            }
+        },
+
+        "thermometer": {
+            "prototype": "digit/ui/slider.reel",
+            "properties": {
+                "element": {"#": "thermometer"},
+                "axis": "vertical"
+            }
         }
     }
     </script>
@@ -18,15 +40,15 @@
     <div>
         <fieldset>
             <div>&deg;C
-               <input type="number"/>
+               <input data-montage-id="celsius"/>
             </div>
             <div>&deg;F
-               <input type="number"/>
+               <input data-montage-id="fahrenheit"/>
             </div>
         </fieldset>
     </div>
         <fieldset>
-           <input type="range"/>
+           <input data-montage-id="thermometer" type="range" />
         </fieldset>
     </div>
 </body>
