@@ -15,13 +15,17 @@
             "prototype": "digit/ui/number-field.reel",
             "properties": {
                 "element": {"#": "celsius"}
-             }
+            },
+            "bindings": {
+                "value": {"<->": "(+@fahrenheitNumberfield.value - 32) / 1.8"}
+            }
         },
 
         "fahrenheitNumberfield": {
             "prototype": "digit/ui/number-field.reel",
             "properties": {
-                "element": {"#": "fahrenheit"}
+                "element": {"#": "fahrenheit"},
+                "value": "32"
             }
         },
 
@@ -30,6 +34,9 @@
             "properties": {
                 "element": {"#": "thermometer"},
                 "axis": "vertical"
+            },
+            "bindings": {
+                "value": {"<->": "@fahrenheitNumberfield.value"}
             }
         }
     }
