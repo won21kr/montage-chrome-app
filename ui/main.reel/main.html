@@ -14,6 +14,14 @@
                 }
             },
 
+            "title": {
+                "prototype": "digit/ui/title.reel",
+                "properties": {
+                    "element": {"#": "title"},
+                    "value": "Temperature Converter"
+                }
+            },
+
             "tempConverter": {
                 "prototype": "ui/converter.reel",
                 "properties": {
@@ -32,9 +40,9 @@
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
-        <h1>Temperature Converter</h1>
+        <h1 data-montage-id="title" class="Title"></h1>
         <div data-montage-id="tempConverter"></div>
-        <div data-montage-id="montageVersion"></div>
+        <footer data-montage-id="montageVersion"></footer>
     </div>
 </body>
 </html>
