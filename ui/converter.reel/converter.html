@@ -44,18 +44,16 @@
 </head>
 <body>
     <div data-montage-id="converter" class="Converter">
-    <div>
-        <fieldset>
-            <div>&deg;C
-               <input data-montage-id="celsius"/>
+        <fieldset class="Numbers">
+            <div class="Label">&deg;C
+               <input data-montage-id="celsius">
             </div>
-            <div>&deg;F
-               <input data-montage-id="fahrenheit"/>
+            <div class="Label">&deg;F
+               <input data-montage-id="fahrenheit">
             </div>
         </fieldset>
-    </div>
-        <fieldset>
-           <input data-montage-id="thermometer" type="range" />
+        <fieldset class="Slider">
+           <input data-montage-id="thermometer" class="Slider-handle" type="range" min="-13" max="122">
         </fieldset>
     </div>
 </body>
