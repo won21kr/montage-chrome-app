@@ -6,7 +6,7 @@ window.addEventListener('message', function(e) {
     var data = e.data,
         key = data.key;
 
-    console.log('[sandbox-frame-bridge.js] Post Message request for ' + key + ' ... ');
+    // console.log('[sandbox-frame-bridge.js] Post Message request for ' + key + ' ... ');
 
     switch (key) {
 
