@@ -3,44 +3,32 @@ var iframe = document.getElementById('sandbox-frame');
 iframeWindow = iframe.contentWindow;
 
 window.addEventListener('message', function(e) {
-    var data= e.data,
+    var data = e.data,
         key = data.key;
 
-    console.log('[sandbox-frame-bridge.js] Post Message request key ' + key);
+    console.log('[sandbox-frame-bridge.js] Post Message request for ' + key + ' ... ');
 
     switch (key) {
-        case 'extension-baseurl':
-            extensionBaseUrl(data);
-            break;
 
-        case 'upnp-discover':
-            upnpDiscover(data);
-            break;
-
-        case 'upnp-browse':
-            upnpBrowse(data);
-            break;
-
-        case 'play-media':
-            playMedia(data);
-            break;
-
-        case 'download-media':
-            downloadMedia(data);
-            break;
-
-        case 'cancel-download':
-            cancelDownload(data);
+        case 'xhr-file':
+            xhrFile(data);
             break;
 
         default:
-            console.log('[sandbox-frame-bridge.js] unidentified key for Post Message: "' + key + '"');
+            console.log('[sandbox-frame-bridge.js] unidentified Post Message for "' + key + '" ... ');
     }
 }, false);
 
-function extensionBaseUrl(data) {
-    // data.result = chrome.extension.getURL('/'); //OUTDATED
-    data.result = window.location.hostname;
+function xhrFile(message) {
+    var filename = message.params.filename;
 
-    iframeWindow.postMessage(data, '*');
+    var request = new XMLHttpRequest();
+
+    request.onload = function() {
+        message.result = this.responseText
+        iframeWindow.postMessage(message, '*');
+    };
+
+    request.open("GET", filename, true);
+    request.send();
 }
