@@ -19,16 +19,26 @@ window.addEventListener('message', function(e) {
     }
 }, false);
 
-function xhrFile(message) {
-    var filename = message.params.filename;
+function xhrFile(data) {
 
-    var request = new XMLHttpRequest();
+    (function(message){
+        var filename = message.params.filename,
+        request = new XMLHttpRequest();
 
-    request.onload = function() {
-        message.result = this.responseText
-        iframeWindow.postMessage(message, '*');
-    };
+        request.onload = function() {
+            message.result = this.responseText
+            iframeWindow.postMessage(message, '*');
+        };
 
-    request.open("GET", filename, true);
-    request.send();
+        request.onerror = function(error) {
+            console.log("XHR Error", error);
+            message.errorType = error.message;
+            iframeWindow.postMessage(message, '*');
+        };
+
+        request.open("GET", filename, true);
+        request.send();
+
+    })(data);
 }
+
