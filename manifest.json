@@ -18,8 +18,7 @@
 	},
 
 	"sandbox": {
-		"pages": ["index.html"],
-		"content_security_policy": "sandbox allow-scripts; default-src 'self' chrome-extension-resource: 'unsafe-eval'; "
+		"pages": ["index.html"]
 	},
 
 	"permissions": [
