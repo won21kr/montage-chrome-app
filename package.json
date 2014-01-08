@@ -1,0 +1,15 @@
+{
+    "name": "montage-chrome-apps",
+    "version": "0.1.0",
+    "dependencies": {
+        "montage": "git://github.com/cesine/montage.git#chromeApp",
+        "digit": "~0.4.0"
+    },
+    "devDependencies": {
+        "montage-testing": "0.2.0"
+    },
+    "exclude": [
+        "run-tests.html",
+        "test"
+    ]
+}

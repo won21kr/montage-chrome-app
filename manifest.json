@@ -1,0 +1,35 @@
+{
+	"name": "Temperature Converter",
+	"description": "A two-way data binding example built with MontageJS",
+	"version": "1.0.0",
+	"manifest_version": 2,
+	"offline_enabled": true,
+	"app": {
+		"background": {
+			"scripts": [
+				"background.js"
+			]
+		}
+	},
+
+	"icons": {
+		"16": "assets/temp-converter-16.png",
+		"128": "assets/temp-converter-128.png"
+	},
+
+	"sandbox": {
+		"pages": ["index.html"]
+	},
+
+	"permissions": [
+		"https://*/*",
+		"experimental",
+		"unlimitedStorage", {
+			"socket": [
+				"tcp-connect",
+				"udp-send-to",
+				"udp-bind"
+			]
+		}
+	]
+}
